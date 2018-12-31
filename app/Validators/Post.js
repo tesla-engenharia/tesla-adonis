@@ -1,5 +1,7 @@
 'use strict'
 
+const Antl = use('Antl')
+
 class Post {
   get validateAll () {
     return true
@@ -11,6 +13,10 @@ class Post {
       title: 'required',
       content: 'required'
     }
+  }
+
+  get messages () {
+    return Antl.list('validation')
   }
 }
 
