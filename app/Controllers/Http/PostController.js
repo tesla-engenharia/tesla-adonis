@@ -7,11 +7,13 @@ class PostController {
    * Show a list of all posts.
    * GET posts
    */
-  async index () {
+  async index ({ request }) {
+    const { page } = request.get()
+
     const posts = await Post.query()
       .with('user')
       .with('file')
-      .fetch()
+      .paginate(page || 1, 10)
 
     return posts
   }
