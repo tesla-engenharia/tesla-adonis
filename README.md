@@ -1,28 +1,37 @@
-# Adonis API application
+# Tesla API application
 
-This is the boilerplate for creating an API server in AdonisJs, it comes pre-configured with.
+RESTful API for Tesla Engineering website
 
-1. Bodyparser
-2. Authentication
-3. CORS
-4. Lucid ORM
-5. Migrations and seeds
+## Dependencies
+
+1. PostgreSQL 11
+2. Moment
+3. Sentry
+
+Checkout `package.json` for more info.
 
 ## Setup
 
 Use the adonis command to install the blueprint
 
 ```bash
-adonis new yardstick --api-only
+adonis serve --dev
 ```
 
 or manually clone the repo and then run `npm install`.
 
-
-### Migrations
+## Migrations
 
 Run the following command to run startup migrations.
 
-```js
+```bash
 adonis migration:run
+```
+
+## Routes
+
+Run the command bellow to show the available routes.
+
+```bash
+adonis route:list
 ```

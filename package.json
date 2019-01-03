@@ -1,8 +1,8 @@
 {
-  "name": "adonis-api-app",
-  "version": "4.1.0",
+  "name": "tesla-api",
+  "version": "1.0.0",
   "adonis-version": "4.1.0",
-  "description": "Adonisjs boilerplate for API server with pre-configured JWT",
+  "description": "RESTful API for Tesla Engineering website",
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
@@ -10,7 +10,11 @@
   },
   "keywords": [
     "adonisjs",
-    "adonis-app"
+    "adonis-app",
+    "blog",
+    "engineering",
+    "engineer",
+    "junior company"
   ],
   "author": "",
   "license": "UNLICENSED",
