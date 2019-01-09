@@ -11,6 +11,7 @@ class PostController {
     const { page } = request.get()
 
     const posts = await Post.query()
+      .orderBy('created_at', 'desc')
       .with('user')
       .with('file')
       .paginate(page || 1, 10)
