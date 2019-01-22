@@ -36,7 +36,8 @@
     "@sentry/node": "^4.4.2",
     "adonis-kue": "^5.0.1",
     "moment": "^2.23.0",
-    "pg": "^7.7.1"
+    "pg": "^7.7.1",
+    "youch": "^2.0.10"
   },
   "devDependencies": {
     "eslint": "^5.11.1",
