@@ -5,7 +5,7 @@
   "description": "RESTful API for Tesla Engineering website",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "adonis kue:listen",
     "test": "node ace test"
   },
   "keywords": [
