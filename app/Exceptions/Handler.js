@@ -4,7 +4,7 @@ const Sentry = require('@sentry/node')
 const Config = use('Config')
 
 const Env = use('Env')
-const Youch = use('Youch')
+const Youch = require('youch')
 const BaseExceptionHandler = use('BaseExceptionHandler')
 
 class ExceptionHandler extends BaseExceptionHandler {

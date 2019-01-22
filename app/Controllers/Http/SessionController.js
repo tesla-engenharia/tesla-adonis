@@ -1,6 +1,6 @@
 'use strict'
 
-const Youch = use('Youch')
+const Youch = require('youch')
 
 class SessionController {
   async store ({ request, response, auth }) {
