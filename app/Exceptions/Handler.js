@@ -25,7 +25,6 @@ class ExceptionHandler extends BaseExceptionHandler {
   }
 
   async report (error, { request }) {
-    console.log(error)
     Sentry.init(Config.get('services.sentry'))
     Sentry.captureException(error)
   }

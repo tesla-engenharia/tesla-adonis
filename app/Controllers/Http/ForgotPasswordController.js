@@ -2,7 +2,8 @@
 
 const crypto = require('crypto')
 const moment = require('moment')
-const Mail = use('Mail')
+const Kue = use('Kue')
+const ForgotPasswordJob = use('App/Jobs/ForgotPasswordMail')
 const User = use('App/Models/User')
 
 class ForgotPasswordController {
@@ -17,24 +18,20 @@ class ForgotPasswordController {
 
       await user.save()
 
-      await Mail.send(
-        ['emails.forgot_password'],
+      await Kue.dispatch(
+        ForgotPasswordJob.key,
         {
-          email: user.email,
-          token: user.token,
-          link: `${request.input('redirect_url')}?token=${user.token}`
+          user,
+          redirectUrl: request.input('redirect_url')
         },
-        message => {
-          message
-            .from('oi@teslaej.com.br', 'Tesla Engenharia')
-            .to(user.email)
-            .subject('Recuperação de senha')
+        {
+          attempts: 3
         }
       )
     } catch (err) {
       return response
         .status(err.status)
-        .send({ error: { message: `Email doesn't exists` } })
+        .send({ error: { message: 'Email inexistente' } })
     }
   }
 

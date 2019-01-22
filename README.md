@@ -12,10 +12,11 @@ Checkout `package.json` for more info.
 
 ## Setup
 
-Use the adonis command to install the blueprint
+Use the adonis command to listen to Kue and serve the app
 
 ```bash
-adonis serve --dev
+adonis kue:listen
+adonis serve
 ```
 
 or manually clone the repo and then run `npm install`.
