@@ -22,7 +22,10 @@ class ForgotPasswordMail {
       },
       message => {
         message
-          .from('oi@teslaej.com.br', 'Tesla Engenharia')
+          .from(
+            'teste@sandboxe654fa6e32744cada749ecc5e18c9494.mailgun.org',
+            'Tesla Engenharia'
+          )
           .to(user.email)
           .subject('Recuperação de senha')
       }
