@@ -18,11 +18,12 @@ class ForgotPasswordController {
 
       await user.save()
 
+      const redirectUrl = request.input('redirect_url')
       await Kue.dispatch(
         ForgotPasswordJob.key,
         {
           user,
-          redirectUrl: request.input('redirect_url')
+          redirectUrl
         },
         {
           attempts: 3
