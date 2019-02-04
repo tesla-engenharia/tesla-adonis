@@ -51,7 +51,13 @@ class PostController {
   async update ({ params, request }) {
     const post = await Post.findOrFail(params.id)
 
-    const data = request.only(['file_id', 'title', 'content', 'user_id'])
+    const data = request.only([
+      'file_id',
+      'title',
+      'content',
+      'user_id',
+      'created_at'
+    ])
 
     post.merge(data)
 
