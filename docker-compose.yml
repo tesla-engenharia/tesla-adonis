@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  database:
+    build: "./db"
+    ports:
+      - "5432:5432"
+    environment:
+      - "TESLA_DB_USER=${DB_USER}"
+      - "TESLA_DB_PASSWORD=${DB_PASSWORD}"
+      - "TESLA_DB_DATABASE=${DB_DATABASE}"
+      - "POSTGRES_PASSWORD=${DB_PASSWORD}"
