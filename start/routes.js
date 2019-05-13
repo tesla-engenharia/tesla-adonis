@@ -23,4 +23,6 @@ Route.group(() => {
   Route.post('posts', 'PostController.store').validator('Post')
   Route.put('posts/:id', 'PostController.update')
   Route.delete('posts/:id', 'PostController.destroy')
+  Route.resource('projects', 'ProjectController').apiOnly()
+  Route.resource('projects.jobs', 'JobController').apiOnly()
 }).middleware(['auth'])
