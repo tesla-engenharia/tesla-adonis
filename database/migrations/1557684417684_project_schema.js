@@ -23,6 +23,8 @@ class ProjectSchema extends Schema {
         .onDelete('SET NULL')
       table.string('title').notNullable()
       table.text('description')
+      table.text('long_description')
+      table.string('departament')
       table.timestamps()
     })
   }
