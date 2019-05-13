@@ -14,6 +14,13 @@ class ProjectSchema extends Schema {
         .inTable('users')
         .onUpdate('CASCADE')
         .onDelete('SET NULL')
+      table
+        .integer('icon_id')
+        .unsigned()
+        .references('id')
+        .inTable('files')
+        .onUpdate('CASCADE')
+        .onDelete('SET NULL')
       table.string('title').notNullable()
       table.text('description')
       table.timestamps()

@@ -35,7 +35,7 @@ class ProjectController {
    * @param {Response} ctx.response
    */
   async store ({ request, response, auth }) {
-    const data = request.only(['title', 'description'])
+    const data = request.only(['title', 'description', 'icon_id'])
     const project = await Project.create({
       ...data,
       user_id: auth.user.id
