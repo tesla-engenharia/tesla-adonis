@@ -4,7 +4,7 @@ services:
   database:
     build: "./db"
     ports:
-      - "5432:5432"
+      - "80:5432"
     environment:
       - "TESLA_DB_USER=${DB_USER}"
       - "TESLA_DB_PASSWORD=${DB_PASSWORD}"
