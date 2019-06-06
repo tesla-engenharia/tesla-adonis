@@ -2,40 +2,20 @@
 
 const Project = use('App/Models/Project')
 
-/** @typedef {import('@adonisjs/framework/src/Request')} Request */
-/** @typedef {import('@adonisjs/framework/src/Response')} Response */
-/** @typedef {import('@adonisjs/framework/src/View')} View */
-
-/**
- * Resourceful controller for interacting with projects
- */
 class ProjectController {
-  /**
-   * Show a list of all projects.
-   * GET projects
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
-   */
-  async index ({ request, response, view }) {
-    const projects = await Project.query()
-      .with('user')
-      .fetch()
+  async index ({ request }) {
+    const projects = await Project.query().fetch()
     return projects
   }
 
-  /**
-   * Create/save a new project.
-   * POST projects
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   */
   async store ({ request, response, auth }) {
-    const data = request.only(['title', 'description', 'icon_id'])
+    const data = request.only([
+      'title',
+      'description',
+      'icon_id',
+      'long_description',
+      'departament'
+    ])
     const project = await Project.create({
       ...data,
       user_id: auth.user.id
@@ -43,15 +23,6 @@ class ProjectController {
     return project
   }
 
-  /**
-   * Display a single project.
-   * GET projects/:id
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
-   */
   async show ({ params }) {
     const project = await Project.findOrFail(params.id)
     await project.load('user')
@@ -60,19 +31,15 @@ class ProjectController {
     return project
   }
 
-  /**
-   * Render a form to update an existing project.
-   * GET projects/:id/edit
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
-   */
-
   async update ({ params, request }) {
     const project = await Project.findOrFail(params.id)
-    const data = request.only(['title', 'description'])
+    const data = request.only([
+      'title',
+      'description',
+      'icon_id',
+      'long_description',
+      'departament'
+    ])
     project.merge(data)
     await project.save()
     return project
