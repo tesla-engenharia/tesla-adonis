@@ -36,3 +36,4 @@ Run the command bellow to show the available routes.
 ```bash
 adonis route:list
 ```
+Insomnia workspace backup is available [here](https://gist.githubusercontent.com/renanmav/664a9d235c69b14112e6bf9c0fa4555e/raw/5fb9ed569d2a665579670d6920923923e2deec5a/insomnia-adonis-tesla-api.json).
